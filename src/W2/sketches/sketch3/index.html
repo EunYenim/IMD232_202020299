@@ -13,8 +13,13 @@
     <script src="../../../../plugin/prism/prism.js" defer></script>
     <!-- <script>
       let userName = prompt('너의 이름은?', '홍길동');
-      document.getElementById('html-id').textContent =
-        '환영합니다.' + userName + '님';
+      let isUserNameCorrect = confirm(
+        '당신의 이름이 ' + userName + '이 맞습니까?'
+      );
+      if (isUserNameCorrect == true) {
+        document.getElementById('html-id').textContent =
+          '환영합니다 ' + userName + '님';
+      }
     </script> -->
   </head>
   <body>
@@ -22,6 +27,7 @@
       <main>
         <section>
           <div class="container">
+            <h1>은예님 W2 sketch3</h1>
             <h2 id="html-id"></h2>
           </div>
         </section>
@@ -29,10 +35,11 @@
       <footer>
         <section>
           <div class="container">
-            <h6>index.html</h6>
+            <h6>/Location of the Script/ index.html</h6>
             <pre
               class="line-numbers"
               data-src="./index.html"
+              data-line="14-23, 47-58"
               data-download-link></pre>
           </div>
         </section>
@@ -40,8 +47,13 @@
     </div>
     <script>
       let userName = prompt('너의 이름은?', '홍길동');
-      document.getElementById('html-id').textContent =
-        '환영합니다 ' + userName + '님';
+      let isUserNameCorrect = confirm(
+        '당신의 이름이 ' + userName + '이 맞습니까?'
+      );
+      if (isUserNameCorrect == true) {
+        document.getElementById('html-id').textContent =
+          '환영합니다 ' + userName + '님';
+      }
     </script>
   </body>
 </html>

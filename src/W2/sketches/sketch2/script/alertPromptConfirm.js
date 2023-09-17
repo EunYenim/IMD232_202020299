@@ -1,3 +1,9 @@
-alert('나의 홈페이지에 당도한 것을 환영하오 낯선이여');
-let userTyped = prompt('자네이름이 무엇인가?', '홍길동');
-confirm('그러니까 자네이름이 ' + userTyped + '이라는 거지?');
+alert('안녕하세요? 예님이의 홈페이지에 오신 것을 환영합니다');
+prompt('샌즈 아시나요?');
+confirm('와 아시는구나 샌즈');
+let userName;
+userName = prompt('당신의 이름은?', '홍길동');
+let confirmVal = confirm('너의 이름은 ' + userName + '이구나'); // 취소버튼이 있음
+if (confirmVal == true) {
+  alert('환영합니다 ' + userName + '님');
+}

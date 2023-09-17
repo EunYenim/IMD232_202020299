@@ -14,26 +14,32 @@
     <script>
       alert('안녕하세요? 예님이의 홈페이지에 오신 것을 환영합니다');
       prompt('샌즈 아시나요?');
+      confirm('와 아시는구나 샌즈');
       let userInputFromPrompt;
       userInputFromPrompt = prompt('당신의 이름은?', '홍길동');
-      confirm('와 아시는구나 샌즈');
-      confirm('너의 이름은' + userInputFromPrompt + '이구나'); // 취소버튼이 있음
+      let confirmVal = confirm('너의 이름은 ' + userInputFromPrompt + '이구나'); // 취소버튼이 있음
+      if (confirmVal == true) {
+        alert('환영합니다 ' + userInputFromPrompt + '님');
+      }
     </script>
   </head>
   <body>
     <div class="viewport">
       <main>
         <section>
-          <div class="container"></div>
+          <div class="container">
+            <h1>은예님 W2 sketch1</h1>
+          </div>
         </section>
       </main>
       <footer>
         <section>
           <div class="container">
-            <h6>index.html</h6>
+            <h6>/Inline Script/ index.html</h6>
             <pre
               class="line-numbers"
               data-src="./index.html"
+              data-line="14-24"
               data-download-link></pre>
           </div>
         </section>
