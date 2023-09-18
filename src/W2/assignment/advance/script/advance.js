@@ -77,7 +77,7 @@ function draw() {
   rect(0, (42 * height) / 100, width * 0.17, height * 0.015);
   rect((17 * width) / 100, (20 * height) / 100, width * 0.02, height * 0.47);
   fill('#696969');
-  rect((5.5 * width) / 100, (19.8 * height) / 100, width * 0.02, height * 0.5);
+  rect((5.5 * width) / 100, (20 * height) / 100, width * 0.02, height * 0.5);
   fill('#C3C3C3');
   rect(0, (65 * height) / 100, width * 0.21, height * 0.02);
   fill('#5C5C5C');
