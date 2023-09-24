@@ -6,7 +6,7 @@ let velocityY = 5;
 function setup() {
   setCanvasContainer('p5-canvas', 3, 2, true);
   background('white');
-  x = width / 2.0; //초기값 설정
+  x = width / 2.0; //초기값 설정 -> 중간에서 시작
   y = height / 2.0;
 }
 
@@ -16,20 +16,20 @@ function draw() {
   y += velocityY;
   ellipse(x, y, 50);
 
-  //if (x < 0) {
-  // velocityX *= -1;
-  //} else if (x > width) {
-  // velocityX *= -1;
-  //}
+  //   //if (x < 0) {
+  //   // velocityX *= -1;
+  //   //} else if (x > width) {
+  //   // velocityX *= -1;
+  //   //}
   if (x < 0 || x > width) {
     velocityX *= -1;
-  }
+  } // 영역밖으로 넘어가면 다시 위로 올라오는 설정
 
-  //if (y < 0) {
-  // velocityY *= -1;
-  //} else if (y > height) {
-  // velocityY *= -1;
-  // }
+  //   //if (y < 0) {
+  //   // velocityY *= -1;
+  //   //} else if (y > height) {
+  //   // velocityY *= -1;
+  //   // }
   if (y < 0 || y > width) {
     velocityY *= -1;
   }

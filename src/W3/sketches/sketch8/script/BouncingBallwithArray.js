@@ -24,10 +24,12 @@ function draw() {
   pos[1] += vel[1];
 
   if (pos[0] < 0 || pos[0] > width) {
-    vel[0] *= -1;
+    // X좌표
+    vel[0] *= -1; // pos에게도 값이 들어가기 때문에, pos의 x,y값이 -가 되고, 진행방향에서 반대로 가게됨
   }
 
   if (pos[1] < 0 || pos[1] > width) {
+    //Y 좌표
     vel[1] *= -1;
   }
 }

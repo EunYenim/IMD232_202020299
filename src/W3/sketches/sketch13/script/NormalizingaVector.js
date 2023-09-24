@@ -21,9 +21,10 @@ function draw() {
   translate(cv.x, cv.y);
   line(0, 0, cvToMv.x, cvToMv.y);
 
-  cvToMv.normalize();
-  cvToMv.mult(50);
+  cvToMv.normalize(); // 1의 값으로 고정
+  cvToMv.mult(50); //mult는 곱하기
   strokeWeight(4);
   stroke('black');
   line(0, 0, cvToMv.x, cvToMv.y);
 }
+//nomalizing은 0 - 1 사이의 값을 바꾼다
