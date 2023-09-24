@@ -9,6 +9,7 @@ let accPoint;
 let posPoint;
 let cvToMv;
 let cvToPo;
+let cvToAc;
 
 function setup() {
   setCanvasContainer('p5-canvas', 100, 100, true);
@@ -41,8 +42,12 @@ function display() {
   //원을 중심으로 하는 가속도의 시각화
   strokeWeight(2);
   stroke('red');
-  accPoint.set(acc.x, acc.y);
-  line(0, 0, accPoint.x * 100, accPoint.y * 100);
+  accPoint.set(acc.x + pos.x, acc.y + pos.y);
+  cvToAc = p5.Vector.sub(accPoint, cv);
+  line(0, 0, cvToAc.x * 100, cvToAc.y * 100);
+  console.log(mag(cvToAc.x, cvToAc.y));
+  // accPoint.set(acc.x, acc.y);
+  // line(0, 0, accPoint.x * 100, accPoint.y * 100);
 
   //원을 중심으로 하는 속도의 시각화 (움직이는 방향)
   strokeWeight(3);
