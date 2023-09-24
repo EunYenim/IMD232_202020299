@@ -71,6 +71,7 @@ function reset() {
 
 function update() {
   acc = p5.Vector.random2D();
+  // console.log(acc.x, acc.y);
   acc.mult(2); //가속도
   vel.limit(5);
   vel.add(acc); //속력
