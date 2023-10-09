@@ -13,7 +13,7 @@ function setup() {
   background(255);
   mover = new MoverNoMass(width / 2, height / 2, 50);
   gravity = createVector(0, 0.1);
-  wind = createVector(0.2, 0);
+  wind = createVector(0.2, 0); // 오른쪽으로 가는 바람
 }
 function draw() {
   background(255);

@@ -24,7 +24,7 @@ function draw() {
     moverA.applyForce(wind);
   }
   if (moverA.contactEdge()) {
-    let c = 0.5;
+    let c = 0.5; //μ
     // let friction = createVector(moverA.vel.x, moverA.vel.y);
     let friction = moverA.vel.copy(); //값 복사
     friction.mult(-1);

@@ -9,13 +9,14 @@ class MoverNoMass {
 
   addAcc(accInput) {
     this.acc.add(accInput); // 위의 acc 에 gravity를 더함
+    // sketch.js 에서 addAcc에 Gravity를 넣었고, 그게 여기서 acc에 들어감
   }
 
   update() {
     this.vel.add(this.acc);
     this.pos.add(this.vel);
     this.accDisply.set(this.acc);
-    this.acc.mult(0);
+    this.acc.mult(0); // acc 초기화
   }
 
   checkEdges() {

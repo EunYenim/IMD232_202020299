@@ -24,9 +24,12 @@ class MoverNoMass {
       // this.pos.x = 0 + delta;
 
       //두번 째 방법
-      this.pos.x -= 0;
-      this.pos.x *= -1;
-      this.pos.x += 0;
+      this.pos.x -= 0; // 0보다 얼마나 뚫고 간 거리 계산(저장)
+      //여기서의 0의 포지션은 튕기는 위치의 포지션이다.
+      this.pos.x *= -1; // 뚫고 간 만큼 반전
+      this.pos.x += 0; //뚫고 간 거리 저장
+      // 뚫고 간 거리만큼 방향을 반전시켜
+      //오브젝트를 위치시키면, 벽에 부딪혀 튕긴 X값의 좌표구할 수 있음
       this.vel.x *= -1;
     } else if (this.pos.x > width - 1) {
       this.pos.x -= width - 1;
