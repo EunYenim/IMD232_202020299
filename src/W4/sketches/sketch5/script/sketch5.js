@@ -19,6 +19,8 @@ function draw() {
   gravityA.mult(moverA.mass);
   moverA.applyForce(gravityA);
 
+  // console.log(gravityA);
+
   if (mouseIsPressed && isMouseInsideCanvas()) {
     // 화면 안에서 누를 때만 작동
     moverA.applyForce(wind);
@@ -30,6 +32,7 @@ function draw() {
     friction.mult(-1);
     friction.mult(c);
     moverA.applyForce(friction);
+    console.log(friction);
   }
 
   moverA.update();
