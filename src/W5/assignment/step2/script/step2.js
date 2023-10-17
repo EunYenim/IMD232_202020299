@@ -9,7 +9,7 @@ function setup() {
   pendulumB = new Pendulum(
     pendulumA.ballPos.x,
     pendulumA.ballPos.y,
-    height / 2,
+    height / 3,
     (TAU / 360) * 45,
     25
   );
