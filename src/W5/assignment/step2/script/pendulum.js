@@ -4,7 +4,6 @@ class Pendulum {
     this.angleVel = 0;
     this.angleAcc = 0;
     this.pos = createVector(x, y);
-    this.pos2 = createVector(x, y);
     this.length = length; // 반지름 = 크기 값 // 반지름 = 크기 값
     this.ballPos = createVector(x, y);
     this.ballPos.add(
@@ -15,12 +14,6 @@ class Pendulum {
     this.draggingOffset = createVector();
     this.isHover = false;
     this.isDragging = false;
-
-    this.ballPos2 = createVector(x, y);
-    this.ballPos2.add(
-      cos(this.angle) * this.length,
-      sin(this.angle) * this.length
-    );
   }
 
   applyGravity(gravity) {
@@ -47,17 +40,10 @@ class Pendulum {
       sin(this.angle) * this.length + this.pos.y
       //cos 와 sin은 -1부터 1까지의 범위 내에서 반환
     );
-
-    this.ballPos2.set(
-      cos(this.angle) * this.length + this.ballPos.x,
-      sin(this.angle) * this.length + this.ballPos.y
-      //cos 와 sin은 -1부터 1까지의 범위 내에서 반환
-    );
   }
 
   setPos(pA) {
     this.pos.set(pA);
-    this.ballPos2.set(this.ballPos);
   }
 
   display() {
