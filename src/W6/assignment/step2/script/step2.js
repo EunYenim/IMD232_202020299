@@ -12,7 +12,7 @@ function setup() {
 
 function draw() {
   background('#252229');
-  console.log('createdEmittersNum :', emitters.length);
+  console.log('createdParticlesNum :', emitters.length);
 
   for (let i = emitters.length - 1; i >= 0; i--) {
     emitters[i].createBall();
