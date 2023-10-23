@@ -70,7 +70,7 @@ class Emitter {
     colorMode(HSB, 100);
     for (let j = 0; j < this.trails.length; j++) {
       const pos = this.trails[j];
-      fill(0, random(60, 90), 50, this.lifespan * 2);
+      fill(random(0, 100), random(60, 90), 90, this.lifespan * 2);
       ellipse(pos.x, pos.y, 10);
     }
   }
