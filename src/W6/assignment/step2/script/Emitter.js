@@ -47,7 +47,7 @@ class Emitter {
     this.lifespan--;
 
     // 잔상의 수를 제한
-    if (this.trails.length > 8) {
+    if (this.trails.length > 12) {
       this.trails.shift();
     }
 
@@ -70,6 +70,7 @@ class Emitter {
     colorMode(HSB, 100);
     for (let j = 0; j < this.trails.length; j++) {
       const pos = this.trails[j];
+      fill(0, random(60, 90), 50, this.lifespan * 2);
       ellipse(pos.x, pos.y, 10);
     }
   }
