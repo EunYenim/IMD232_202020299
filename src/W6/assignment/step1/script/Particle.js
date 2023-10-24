@@ -8,7 +8,7 @@ class particle {
     this.mass = mass;
     this.rad = 2.5;
     this.color = color(h, s, v);
-    this.rotate = velAngle;
+    this.angle = velAngle;
     this.rotateSpeed = rotateSpeed;
   }
 
@@ -24,7 +24,7 @@ class particle {
     // this.vel.add(this.roatate);
     this.pos.add(this.vel);
     this.acc.mult(0);
-    this.rotate += this.rotateSpeed;
+    this.angle += this.rotateSpeed;
     //
   }
 
@@ -32,7 +32,7 @@ class particle {
     push();
     translate(this.pos.x, this.pos.y);
     rectMode(RADIUS);
-    rotate(this.rotate); // 회전 적용
+    rotate(this.angle); // 회전 적용
     fill(this.color);
     noStroke();
     rect(0, 0, 2 * this.rad);
