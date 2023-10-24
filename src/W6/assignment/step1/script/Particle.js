@@ -1,5 +1,5 @@
 class particle {
-  constructor(posX, posY, velAngle, velMag, mass, h, s, v, rotateSpeed) {
+  constructor(posX, posY, velAngle, velMag, mass, h, s, v, angleSpeed) {
     this.pos = createVector(posX, posY);
     this.vel = createVector(1, 0);
 
@@ -9,7 +9,7 @@ class particle {
     this.rad = 2.5;
     this.color = color(h, s, v);
     this.angle = velAngle;
-    this.rotateSpeed = rotateSpeed;
+    this.angleSpeed = angleSpeed;
   }
 
   applyForce(force) {
@@ -24,7 +24,7 @@ class particle {
     // this.vel.add(this.roatate);
     this.pos.add(this.vel);
     this.acc.mult(0);
-    this.angle += this.rotateSpeed;
+    this.angle += this.angleSpeed;
     //
   }
 
