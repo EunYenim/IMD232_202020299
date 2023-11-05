@@ -40,7 +40,7 @@ class Vehicle {
       steer.sub(this.vel); //steer에서 vel을 뺌
       steer.limit(this.forceMx); // steer의 값을 this.forceMx의 값으로 제한
     }
-    return steer; // steer의 값 전달
+    return steer; // steer의 값 반환
   }
 
   align(others) {
@@ -57,19 +57,20 @@ class Vehicle {
           (this.pos.x - each.pos.x) ** 2 + (this.pos.y - each.pos.y) ** 2;
         if (distSq < this.neighborhooodRad ** 2) {
           // 반경의 제곱보다 disSq가 작으면
-          steer.add(each.vel); // steer에 각 배열의 vel을 더함
+          steer.add(each.vel); // steer에 각 배열의 vel을 더함 (각도계산)
           cnt++; // 반복문이 끝날 떄 마다 cnt에 1씩 더함
         }
       }
     });
     if (cnt > 0) {
       // cnt가 0보다 클 때
+      //값을 nomalize하는 과정
       steer.div(cnt); //steer을 cnt로 나눔
       steer.setMag(this.speedMx); // steer의 크기를 speedMx값으로 설정
       steer.sub(this.vel); //steer에서 vel을 뺌
       steer.limit(this.forceMx); // steer의 값을 this.forceMx의 값으로 제한
     }
-    return steer; // steer의 값 전달
+    return steer; // steer의 값 반환
   }
 
   separate(others) {
@@ -102,7 +103,7 @@ class Vehicle {
       steer.sub(this.vel); // steer에서 vel을 뺌
       steer.limit(this.forceMx); // steer의 값을 this.forceMx의 값으로 제한
     }
-    return steer; // steer의 값 전달
+    return steer; // steer의 값 반환
   }
 
   applyForce(force) {
