@@ -32,7 +32,7 @@ class Traffic {
     // 외부에서 x,y의 값을 받는 vehicle를 생성하는 함수
     const mass = 1; //vehicles 질량 정의
     this.vehicles.push(
-      new Vehicle(x, y, mass, mass * 12, 5, 0.1, color(random(360), 100, 40))
+      new Vehicle(x, y, mass, mass * 12, 5, 0.1, color(random(360), 80, 80))
     ); // 새로운 vehocle 생성 및 배열에 추가
   }
 }
