@@ -2,6 +2,7 @@ let traffic; // traffic 변수 설정
 let infiniteOffset = 80; // 변수 설정
 
 function setup() {
+  // 프로그램 초기화 및 실행하는 함수
   setCanvasContainer('canvas', 3, 2, true); // 캔버스 크기 설정
   colorMode(HSL, 360, 100, 100, 100); // 칼러모드를 HSL로 설정
   background(8); // 배경색 설정
@@ -14,6 +15,7 @@ function setup() {
 }
 
 function draw() {
+  // 매프래임마다 실행하는 함수
   background(8); // 배경색 설정
   traffic.run(); // traffic의 run 함수 실행
 }
