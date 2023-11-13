@@ -39,11 +39,38 @@ let mouse;
 function setup() {
   setCanvasContainer('canvas', oHeight, oHeight, true);
 
-  let concave1 = Vertices.fromPath('-24 0 -10 -18 29 -6 7 7 4 32 -20 23'),
-    chevron = Vertices.fromPath(
-      '33.33 0 23.33 16.67 33.33 33.33 6.67 33.33 0 16.67 3.33 0'
-    );
-  arrow = Vertices.fromPath('20 0 20 10 50 10 50 40 20 40 20 50 0 25');
+  //도형 설정
+  const concave1 = (vertices = [
+    { x: -28, y: 0 },
+    { x: -10, y: -18 },
+    { x: 28, y: -6 },
+    { x: 4, y: 12 },
+    { x: 0, y: 44 },
+    { x: -24, y: 23 },
+  ]);
+  concave2 = vertices = [
+    { x: 33.33, y: 0 },
+    { x: 23.33, y: 16.67 },
+    { x: 33.33, y: 33.33 },
+    { x: -8.67, y: 33.33 },
+    { x: 0, y: 16.67 },
+    { x: -8.67, y: 0 },
+  ];
+  concave3 = vertices = [
+    { x: 20, y: 0 },
+    { x: 20, y: 10 },
+    { x: 50, y: 10 },
+    { x: 50, y: 40 },
+    { x: 20, y: 40 },
+    { x: 20, y: 50 },
+    { x: 0, y: 25 },
+  ];
+
+  //다각형 분해
+  const Body = decomp.quickDecomp(concave1);
+  const Body2 = decomp.quickDecomp(concave2);
+  const Body3 = decomp.quickDecomp(concave3);
+
   group = Matter.Body.nextGroup(true);
 
   ropeA = Matter.Composites.stack(100, 50, 8, 1, 10, 10, function (x, y) {
@@ -51,7 +78,6 @@ function setup() {
       collisionFilter: { group: group },
     });
   });
-
   Matter.Composites.chain(ropeA, 0.5, 0, -0.5, 0, {
     stiffness: 0.8,
     length: 2,
@@ -71,7 +97,7 @@ function setup() {
   group = Matter.Body.nextGroup(true);
 
   ropeB = Matter.Composites.stack(350, 50, 10, 1, 10, 10, function (x, y) {
-    return Matter.Bodies.fromVertices(x - 20, y, chevron, {
+    return Matter.Bodies.fromVertices(x - 20, y, concave2, {
       collisionFilter: { group: group },
     });
   });
@@ -95,7 +121,7 @@ function setup() {
   group = Matter.Body.nextGroup(true);
 
   ropeC = Matter.Composites.stack(600, 50, 13, 1, 10, 10, function (x, y) {
-    return Matter.Bodies.fromVertices(x - 20, y, arrow, {
+    return Matter.Bodies.fromVertices(x - 20, y, concave3, {
       collisionFilter: { group: group },
       chamfer: 5,
     });
@@ -148,7 +174,6 @@ function draw() {
   mouse.pixelRatio = (pixelDensity() * width) / oWidth;
 
   background('#3F3A4A');
-  // scale(width / oWidth, height / oHeight);
   colorMode(HSL);
   stroke(54, 90, 80);
   fill(54, 90, 80);
@@ -199,5 +224,5 @@ function draw() {
       endShape(CLOSE);
     });
   });
-  // console.log('length', ropeA.bodies.parts.length);
+  console.log('length', ropeC.bodies[1].parts.length);
 }
