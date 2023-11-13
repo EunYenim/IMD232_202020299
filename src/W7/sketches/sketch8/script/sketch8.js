@@ -24,6 +24,7 @@ function draw() {
       // fill(random() * 255);
       fill(noise(row * noiseCoordMult, column * noiseCoordMult) * 255);
       rect(column * tileSize, row * tileSize, tileSize);
+      //x,y,w
     }
   }
 }

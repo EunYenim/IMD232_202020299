@@ -17,6 +17,7 @@ function draw() {
   // dataPoint[dataPoint.length - 1] = map(mouseY, 0, height, 1, 0);
   // randomSeed(0);
   dataPoint[dataPoint.length - 1] = random();
+  //랜덤으로 마지막 배열의 Y값 설정
   background(255);
   noStroke();
   fill(0);

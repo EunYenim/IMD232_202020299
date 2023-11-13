@@ -31,6 +31,7 @@ function draw() {
       );
       rotate(
         radians(noise(row * noiseCoordMult, column * noiseCoordMult) * 360)
+        //랜덤한 값을 설정하고 이를 각도로 변환하여 회전
       );
       // ellipse(0, 0, tileSize);
       line(-tileSize * 0.3, 0, tileSize * 0.3, 0);

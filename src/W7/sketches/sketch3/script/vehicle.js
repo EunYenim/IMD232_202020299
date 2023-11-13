@@ -54,10 +54,12 @@ class Vehicle {
     // 도망치는 요소의 함수
     const steer = p5.Vector.sub(target, this.pos);
     steer.mult(-1); // 값을 뒤집음
-    steer.setMag(this.speedMx);
-    steer.sub(this.vel);
-    steer.limit(this.forceMx);
-    this.applyForce(steer);
+    steer.setMag(this.speedMx); // 최대 속도(거리의 벡터 크기 설정)
+    steer.sub(this.vel); // 다시 값이 변경
+    steer.limit(this.forceMx); // 값의 최대치 설정 (가속도의 제한)
+    this.applyForce(steer); // 가속도 값으로 전달
+
+    //거리값으로 속도를 구하고, 속도값으로 가속도를 구함
   }
 
   borderInfinite() {
