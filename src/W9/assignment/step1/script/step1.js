@@ -224,5 +224,19 @@ function draw() {
       endShape(CLOSE);
     });
   });
-  console.log('length', ropeC.bodies[1].parts.length);
+  console.log('length', ropeC.bodies[1].parts.length); //4
 }
+
+//concave와 convex는 다각형의 내각에 대한 것
+// concave 다각형은 하나 이상의 내각이 180도를 초과하는 형태
+// "body.parts.length"를 통해 판별할 수 있다고 하는 것은,
+//body.parts.length가 1일 때는 다각형이 convex한 형태로,
+//즉, 모든 내각이 180도 미만으로 구성된 형태이고,
+//concave한 형태로 분해되지 않았을 가능성이 있음
+// concave한 형태로 분해되면 다수의 parts로 나뉘어
+//body.parts.length가 1보다 큼
+
+// 따라서, concave와 convex는 다각형의 내각 구성을
+//판단하는 기준이라 할 수 있으며, concave한 형태로
+//분해될 때는 body.parts가 여러 개로 나뉘게 되어
+//body.parts.length가 1이 아닌 값을 가지게 됨.
