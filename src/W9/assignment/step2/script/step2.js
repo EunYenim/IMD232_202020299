@@ -2,13 +2,15 @@ const {
   Engine,
   Render,
   Runner,
+  Body,
+  Composite,
   Composites,
-  Common,
+  Constraint,
   MouseConstraint,
   Mouse,
-  Composite,
-  Vertices,
   Bodies,
+  Common,
+  Vertices,
 } = Matter;
 
 Common.setDecomp(decomp);
@@ -17,6 +19,7 @@ const engine = Engine.create(),
   world = engine.world;
 
 const runner = Runner.create();
+Runner.run(runner, engine);
 
 const oWidth = 800;
 const oHeight = 600;
@@ -26,14 +29,16 @@ let mouse;
 const walls = [];
 let stack;
 
+let group;
+let ropeA;
+let ropeB;
+let ropeC;
+
 function setup() {
   setCanvasContainer('canvas', oWidth, oHeight, true);
 
-  const engine = Matter.Engine.create();
-  world = engine.world;
-
-  let group = Matter.Body.nextGroup(true);
-  Concave = Vertices.fromPaht(
+  group = Matter.Body.nextGroup(true);
+  let Concave = Vertices.fromPath(
     '-0.6 -0.2 1.0 -0.2 1 0.4 0.7 1.1 -0.2 1.0 -0.2 0.4 -1.3 0.2 -0.6 -0.2'
   );
 
@@ -77,7 +82,7 @@ function setup() {
     ropeB,
     Matter.Constraint.create({
       bodyB: ropeB.bodies[0],
-      pointB: { x: -10, y: 0 },
+      pointB: { x: -20, y: 0 },
       pointA: { x: ropeB.bodies[0].position.x, y: ropeB.bodies[0].position.y },
       stiffness: 0.5,
     })
@@ -111,19 +116,29 @@ function setup() {
     Matter.Bodies.rectangle(400, 600, 1200, 50.5, { isStatic: true }),
   ]);
 
-  let canvasMouse = Matter.Mouse.create(canvas.elt),
-    mouseOptions = {
-      mouse: canvasMouse,
-    };
+  mouse = Mouse.create(canvas.elt);
+  mouse.pixelRatio = (pixelDensity() * width) / oWidth;
+  let mouseConstraint = MouseConstraint.create(engine, {
+    mouse: mouse,
+    constraint: {
+      stiffness: 0.2,
+    },
+  });
 
-  mouseConstraint = Matter.MouseConstraint.create(engine, mouseOptions);
-  Matter.World.add(world, mouseConstraint);
+  Composite.add(world, mouseConstraint);
 
-  Matter.Render.mouse = canvasMouse;
+  console.log('group', group);
+  console.log('ropeA', ropeA);
+  console.log('ropeB', ropeB);
+  console.log('ropeC', ropeC);
+  console.log('Bodies', Bodies);
 }
 
 function draw() {
+  mouse.pixelRatio = (pixelDensity() * width) / oWidth;
+
   noStroke();
+  background('white');
   fill('red');
   ropeA.bodies.forEach((eachBody) => {
     eachBody.parts.forEach((eachPart, idx) => {

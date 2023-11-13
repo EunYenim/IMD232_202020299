@@ -39,7 +39,7 @@ let mouse;
 function setup() {
   setCanvasContainer('canvas', oHeight, oHeight, true);
 
-  let concave1 = Vertices.fromPath('-24 0 -10 -18 29 -6 7 7 4 27 -20 23'),
+  let concave1 = Vertices.fromPath('-24 0 -10 -18 29 -6 7 7 4 32 -20 23'),
     chevron = Vertices.fromPath(
       '33.33 0 23.33 16.67 33.33 33.33 6.67 33.33 0 16.67 3.33 0'
     );
