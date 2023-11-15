@@ -27,6 +27,7 @@ const engine = Engine.create(),
 // create runner
 const runner = Runner.create();
 Runner.run(runner, engine);
+
 const walls = [];
 
 let group;
@@ -37,7 +38,7 @@ let ropeC;
 let mouse;
 
 function setup() {
-  setCanvasContainer('canvas', oHeight, oHeight, true);
+  setCanvasContainer('canvas', oWidth, oHeight, true);
 
   //도형 설정
   const concave1 = (vertices = [
