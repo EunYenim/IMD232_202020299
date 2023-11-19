@@ -79,6 +79,7 @@ function setup() {
       collisionFilter: { group: group },
     });
   });
+
   Matter.Composites.chain(ropeA, 0.5, 0, -0.5, 0, {
     stiffness: 0.8,
     length: 2,
