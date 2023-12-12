@@ -6,6 +6,7 @@ let throwingForce;
 
 function setup() {
   setCanvasContainer('canvas', 1, 1, true);
+  console.log('width', width);
 
   mover = new Mover(width / 2, height / 2, 100);
   gravity = createVector(0, 0.5);
